@@ -4,7 +4,8 @@
   "description": "10 year challenge generator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/mustafadane/10yearChallengeGenerator/issues"
   },
-  "homepage": "https://github.com/mustafadane/10yearChallengeGenerator#readme"
+  "homepage": "https://github.com/mustafadane/10yearChallengeGenerator#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
 }
