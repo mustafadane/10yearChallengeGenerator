@@ -1,9 +1,17 @@
+body, html {
+    height: 100%;
+}
+
 .container {
     display: flex;
     justify-content: center;
     height: 100vh;
+    width: auto;
+
     align-items: center;
     background-image: url('Zuck-vs-Zuck.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.3;
+    opacity: 0.5;
 }
