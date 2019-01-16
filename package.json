@@ -1,0 +1,19 @@
+{
+  "name": "10year",
+  "version": "1.0.0",
+  "description": "10 year challenge generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustafadane/10yearChallengeGenerator.git"
+  },
+  "author": "Mustafa Dane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mustafadane/10yearChallengeGenerator/issues"
+  },
+  "homepage": "https://github.com/mustafadane/10yearChallengeGenerator#readme"
+}
