@@ -11,6 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
 //routes
+app.use('/auth', require('./routes/auth'))
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
