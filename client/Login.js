@@ -11,7 +11,7 @@ export class Login extends Component {
         return (
             <div>
                 <h1>This is Login</h1>
-                <button onClick={this.handleClick} >Click Here To Start!</button>
+                <button><a href='/auth/login'>Start here!</a></button>
             </div>
         )
     }

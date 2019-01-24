@@ -19,8 +19,8 @@ passport.use(new FacebookStrategy({
 router.get('/login', passport.authenticate('facebook'))
 
 router.get('/callback', passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/fail'
+    successRedirect: '/gen',
+    failureRedirect: '/'
 }))
 
 router.post('login', async (req, res, next) => {
