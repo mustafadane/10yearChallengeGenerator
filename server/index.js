@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
+const passport = require('passport')
 const PORT = process.env.PORT || 8080
 
 const app = express()
@@ -9,6 +10,25 @@ app.use(morgan('dev'))
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
+passport.serializeUser((user, done) => done(user, user.id))
+
+passport.deserializeUser( async (id, done) => {
+  try {
+    console.log('what what', id)
+    done(null, id)
+  } catch (error) {
+    done(error)
+  }
+})
+
+app.use(require('express-session')({
+  secret: 'Cody cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //routes
 app.use('/auth', require('./routes/auth'))
@@ -29,7 +49,7 @@ app.use((req, res, next) => {
 
 // sends index.html
 app.use('*', (req, res) => {
-res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
 })
 
   // error handling endware

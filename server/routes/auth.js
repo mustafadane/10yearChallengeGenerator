@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const passport = require('passport')
-const FacebookStrategy = require('passport-fascebook').Strategy
-
+const FacebookStrategy = require('passport-facebook').Strategy
+require('../../secrets')
 module.exports = router
 
 passport.use(new FacebookStrategy({
@@ -11,7 +11,8 @@ passport.use(new FacebookStrategy({
 },
     function(accessToken, refreshToken, profile, done) {
         console.log(profile)
-        done(null, user)
+        console.log('accessT', accessToken)
+        done(null, profile)
     }
 ))
 
