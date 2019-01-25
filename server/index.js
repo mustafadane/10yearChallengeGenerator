@@ -11,7 +11,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-passport.serializeUser((user, done) => done(user, user.id))
+passport.serializeUser((user, done) => done(null, user.id))
 
 passport.deserializeUser( async (id, done) => {
   try {
