@@ -16,18 +16,9 @@ passport.use(new FacebookStrategy({
     }
 ))
 
-router.get('/login', passport.authenticate('facebook', {scope: 'email'}))
+router.get('/login', passport.authenticate('facebook', {scope: ['email', 'user_photos']}))
 
 router.get('/callback', passport.authenticate('facebook', {
     successRedirect: '/gen',
     failureRedirect: '/'
 }))
-
-// router.post('login', async (req, res, next) => {
-//     try {
-//       console.log('i dont know if i will ever need this.')
-//     }
-//     catch (err) {
-//         next(err)
-//     }
-// })

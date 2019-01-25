@@ -33,6 +33,15 @@ app.use(passport.session());
 //routes
 app.use('/auth', require('./routes/auth'))
 
+app.get('/token', (req, res, next) => {
+  try {
+    console.log(req._passport.instance)
+    res.send('hello')
+  } catch (err) {
+    next(err)
+  }
+})
+
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')))
 
