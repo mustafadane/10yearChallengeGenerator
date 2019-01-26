@@ -13,6 +13,7 @@ passport.use(new FacebookStrategy({
         console.log(profile)
         console.log('accessT', accessToken)
         done(null, profile)
+
     }
 ))
 
