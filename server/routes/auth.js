@@ -12,7 +12,7 @@ passport.use(new FacebookStrategy({
     function(accessToken, refreshToken, profile, done) {
         console.log(profile)
         console.log('accessT', accessToken)
-        done(null, profile)
+        done(null, accessToken)
 
     }
 ))
@@ -21,5 +21,8 @@ router.get('/login', passport.authenticate('facebook', {scope: ['email', 'user_p
 
 router.get('/callback', passport.authenticate('facebook', {
     successRedirect: '/gen',
-    failureRedirect: '/'
-}))
+    failureRedirect: '/',
+}), (req, res, next) => {
+    console.log(req)
+    // res.redirect('/gen')
+})

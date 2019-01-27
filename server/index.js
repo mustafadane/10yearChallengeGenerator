@@ -11,7 +11,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-passport.serializeUser((user, done) => done(null, user.id))
+passport.serializeUser((user, done) => done(null, user))
 
 passport.deserializeUser( async (id, done) => {
   try {
@@ -35,8 +35,8 @@ app.use('/auth', require('./routes/auth'))
 
 app.get('/token', (req, res, next) => {
   try {
-    console.log(req._passport.instance)
-    res.send('hello')
+    console.log(req.session)
+    res.send(req.session.passport.user)
   } catch (err) {
     next(err)
   }
