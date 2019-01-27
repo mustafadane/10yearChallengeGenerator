@@ -10,8 +10,6 @@ passport.use(new FacebookStrategy({
     callbackURL: "/auth/callback"
 },
     function(accessToken, refreshToken, profile, done) {
-        console.log(profile)
-        console.log('accessT', accessToken)
         done(null, accessToken)
 
     }
@@ -22,7 +20,4 @@ router.get('/login', passport.authenticate('facebook', {scope: ['email', 'user_p
 router.get('/callback', passport.authenticate('facebook', {
     successRedirect: '/gen',
     failureRedirect: '/',
-}), (req, res, next) => {
-    console.log(req)
-    // res.redirect('/gen')
-})
+}))

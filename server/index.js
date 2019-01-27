@@ -3,6 +3,7 @@ const express = require('express')
 const morgan = require('morgan')
 const passport = require('passport')
 const PORT = process.env.PORT || 8080
+const axios = require('axios')
 
 const app = express()
 
@@ -15,7 +16,6 @@ passport.serializeUser((user, done) => done(null, user))
 
 passport.deserializeUser( async (id, done) => {
   try {
-    console.log('what what', id)
     done(null, id)
   } catch (error) {
     done(error)
@@ -24,7 +24,7 @@ passport.deserializeUser( async (id, done) => {
 
 app.use(require('express-session')({
   secret: 'Cody cat',
-  resave: true,
+  resave: false,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
@@ -33,10 +33,11 @@ app.use(passport.session());
 //routes
 app.use('/auth', require('./routes/auth'))
 
-app.get('/token', (req, res, next) => {
+app.get('/token', async (req, res, next) => {
   try {
-    console.log(req.session)
     if(req.session.passport){
+      // const result = await axios.get(`https://graph.facebook.com/v3.2/me/photos?since=2008-01-01&until=2010-01-01&access_token=${req.session.passport.user}`)
+      // console.log('result', result.data.data)
       res.send(req.session.passport.user)
     } else {
       res.send(null)
