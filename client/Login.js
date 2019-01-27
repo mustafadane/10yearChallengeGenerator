@@ -10,7 +10,8 @@ export class Login extends Component {
     render() {
         return (
             <div>
-                <h1>This is Login</h1>
+                <h1>Auto 10 Year Challenge Generator</h1>
+                <h2>Start with loging in with Facebook</h2>
                 <button><a href='/auth/login'>Start here!</a></button>
             </div>
         )

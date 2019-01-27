@@ -7,11 +7,23 @@ body, html {
     justify-content: center;
     height: 100vh;
     width: auto;
-
+    position: relative;
     align-items: center;
+    z-index: 1;
+}
+
+.bg {
+    position: absolute;
     background-image: url('Zuck-vs-Zuck.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }

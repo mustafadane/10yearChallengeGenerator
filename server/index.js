@@ -36,7 +36,11 @@ app.use('/auth', require('./routes/auth'))
 app.get('/token', (req, res, next) => {
   try {
     console.log(req.session)
-    res.send(req.session.passport.user)
+    if(req.session.passport){
+      res.send(req.session.passport.user)
+    } else {
+      res.send(null)
+    }
   } catch (err) {
     next(err)
   }

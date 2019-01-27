@@ -14,6 +14,7 @@ export class App extends Component {
     render() {
         return (
             <div className='container'>
+                <div className='bg'></div>
                     <Switch>
                         <Route exact path='/' component={Login} />
                         <Route path='/gen' component={Generator} />
