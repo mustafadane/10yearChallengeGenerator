@@ -27,3 +27,14 @@ body, html {
     height: 100%;
     z-index: -1;
 }
+
+.final {
+    display: flex;
+}
+
+.imageContainer {
+    height: 400px;
+    width: 400px;
+    overflow: hidden;
+    resize: horizontal
+}
