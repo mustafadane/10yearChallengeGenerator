@@ -15,7 +15,3 @@ add facebook api key (process.env.CLIENT_ID) and secret (process.env.CLIENT_ID) 
 npm install
 npm run start-dev
 ```
-
-### Preview
-
-![10YearChallenge Generator](/10year.gif "10YearChallenge Generator")
